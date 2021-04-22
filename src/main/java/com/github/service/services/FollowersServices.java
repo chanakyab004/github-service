@@ -17,18 +17,18 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class GitHubServices {
+public class FollowersServices {
 
     @Autowired
     RestTemplate restTemplate;
 
     public void getFollowers(String id, int level, Follower follower) {
-        if(level > 3) return;
+        if (level > 3) return;
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.valueOf("application/vnd.github.v3+json")));
         HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-        String response = restTemplate.exchange("https://api.github.com/users/"+id+"/followers?per_page=5&page=0", HttpMethod.GET, entity, String.class).getBody();
+        String response = restTemplate.exchange("https://api.github.com/users/" + id + "/followers?per_page=5&page=0", HttpMethod.GET, entity, String.class).getBody();
 
         List<Follower> followerList = new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class GitHubServices {
         try {
             User[] users = mapper.readValue(response, User[].class);
             for (User user : users) {
-                System.out.println("level :: " + level +", follower user id: " + user.getLogin());
+                System.out.println("level :: " + level + ", follower user id: " + user.getLogin());
                 Follower follower1 = new Follower();
                 follower1.setId(user.getLogin());
                 getFollowers(user.getLogin(), level + 1, follower1);

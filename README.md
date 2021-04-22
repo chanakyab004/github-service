@@ -1,3 +1,15 @@
+## Apps is deployed in public cloud (GCP)
+
+1. Open any browser and hit the below url.
+2. Replace the {id} placeholder with desired github id.
+3. If it is a valid github id and has followers. You can see the response in JSON format.  
+
+> https://pelagic-pager-196117.uc.r.appspot.com/getFollowersById/{id}
+
+example:
+
+> https://pelagic-pager-196117.uc.r.appspot.com/getFollowersById/koushikkothagal
+
 
 ## How to execute
 
