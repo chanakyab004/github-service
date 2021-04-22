@@ -1,4 +1,4 @@
-## Apps is deployed in public cloud (GCP)
+## App is deployed in public cloud (GCP)
 
 1. Open any browser and hit the below url.
 2. Replace the {id} placeholder with desired github id.
